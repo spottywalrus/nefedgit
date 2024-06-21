@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+    <title>Задачи с Массивами и Функциями</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+        }
+        #task-container {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin: 20px;
+            border-radius: 5px;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="task-container">
+        <h2>Задача 1</h2>
+        <p>Массив создан 3 способами:</p>
+        <script>
+            let array1 = [1, 2, 3, 4, 5];
+            let array2 = new Array(1, 2, 3, 4, 5);
+            let array3 = Array.of(1, 2, 3, 4, 5);
+        </script>
+    </div>
+
+    <div id="task-container">
+        <h2>Задача 2</h2>
+        <p>5-й член массива: <span id="arrayElement"></span></p>
+        <script>
+            document.getElementById('arrayElement').textContent = array1[4];
+            array1[4] = 10;
+            document.getElementById('arrayElement').textContent += ", Измененный элемент: " + array1[4];
+        </script>
+    </div>
+
+    <div id="task-container">
+        <h2>Задача 3</h2>
+        <ul id="arrayElements"></ul>
+        <script>
+            let arrayElementsList = document.getElementById('arrayElements');
+            for (let i = 0; i < array1.length; i++) {
+                let li = document.createElement('li');
+                li.textContent = array1[i];
+                li.onmouseover = () => {
+                    li.textContent += ` (Длина массива: ${array1.length})`;
+                };
+                li.onmouseout = () => {
+                    li.textContent = array1[i];
+                };
+                arrayElementsList.appendChild(li);
+            }
+        </script>
+    </div>
+
+    <div id="task-container">
+        <h2>Задача 4</h2>
+        <p>Все элементы массива:</p>
+        <ul id="arrayElementsFor"></ul>
+        <script>
+            let arrayElementsForList = document.getElementById('arrayElementsFor');
+            for (let i = 0; i < array1.length; i++) {
+                let li = document.createElement('li');
+                li.textContent = array1[i];
+                arrayElementsForList.appendChild(li);
+            }
+        </script>
+    </div>
+
+    <div id="task-container">
+        <h2>Задача 5</h2>
+        <p>Объединенный массив:</p>
+        <ul id="mergedArray"></ul>
+        <script>
+            let array4 = [6, 7, 8, 9, 10];
+            let mergedArray = array1.concat(array4);
+            let mergedArrayList = document.getElementById('mergedArray');
+            for (let i = 0; i < mergedArray.length; i++) {
+                let li = document.createElement('li');
+                li.textContent = mergedArray[i];
+                mergedArrayList.appendChild(li);
+            }
+        </script>
+    </div>
+
+    <div id="task-container">
+        <h2>Задача 6</h2>
+        <p>Удаленный элемент: <span id="removedElement"></span></p>
+        <script>
+            let removedElement = mergedArray.pop();
+            document.getElementById('removedElement').textContent = removedElement;
+        </script>
+    </div>
+
+    <div id="task-container">
+        <h2>Задача 7</h2>
+        <p>Удаленный элемент: <span id="removedElement2"></span></p>
+        <script>
+            let removedElement2 = mergedArray.pop();
+            document.getElementById('removedElement2').textContent = removedElement2;
+        </script>
+    </div>
+
+    <div id="task-container">
+        <h2>Задача 8</h2>
+        <p>Измененный массив:</p>
+        <ul id="modifiedArray"></ul>
+        <script>
+            mergedArray.unshift(0);
+            let modifiedArrayList = document.getElementById('modifiedArray');
+            for (let i = 0; i < mergedArray.length; i++) {
+                let li = document.createElement('li');
+                li.textContent = mergedArray[i];
+                modifiedArrayList.appendChild(li);
+            }
+        </script>
+    </div>
+
+    <div id="task-container">
+        <h2>Задача 9</h2>
+        <p>Сегодняшняя дата: <span id="currentDate"></span></p>
+        <script>
+            let today = new Date();
+            document.getElementById('currentDate').textContent = today;
+        </script>
+    </div>
+
+   
+ function showTask3() {
+            taskContainer.innerHTML = `
+                <h2>Дата</h2>
+                <p>Сегодняшняя дата: <span id="formattedDate"></span></p>
+            `;
+            var d = new Date();
+            var month = ["января", "февраля", "марта", "апреля", "мая", "июня",
+                "июля", "августа", "сентября", "октября", "ноября", "декабря"
+            ];
+            var formattedDate = d.getDate() + " " + month[d.getMonth()] + " " + d.getFullYear() + " г.";
+            formattedDateSpan.textContent = formattedDate;
+            taskContainer.style.display = 'block';
+        }
+
+    <div id="task-container">
+        <h2>Задача 11</h2>
+        <p>Произведение случайных чисел: <span id="product"></span></p>
+<button onclick="calculateProduct()">Вычислить произведение</button>
+
+    <script>
+        function calculateProduct() {
+            
+            let num1 = Math.floor(Math.random() * 51);
+            let num2 = Math.floor(Math.random() * 51);
+
+            let product = num1 * num2;
+
+
+            alert(`Произведение чисел ${num1} и ${num2} равно ${product}`);
+        }
+    </script>
+
+</body>
+</html>

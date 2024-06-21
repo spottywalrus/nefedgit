@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+    <title>Практическая работа № 1 (Типы данных. Приведение типов в JS. Циклы)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+        }
+        #task-container {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin: 20px;
+            border-radius: 5px;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+       <div id="task-container">
+        <h2>Задача 0</h2>
+        <p>Результат: <span id="result0"></span></p>
+        <script>
+            let myVar = "Hello World!";
+            document.getElementById('result0').textContent = `Тип переменной: ${typeof myVar}, Значение: ${myVar}`;
+            if (myVar.length > 10) {
+                document.getElementById('result0').textContent += ", Длина строки больше 10";
+            } else {
+                document.getElementById('result0').textContent += ", Длина строки меньше или равна 10";
+            }
+        </script>
+    </div>
+
+    <div id="task-container">
+ <label for="zodiacSign">Введите ваш знак зодиака:</label>
+    <input type="text" id="zodiacSign">
+    <button onclick="showGreeting()">Показать приветствие</button>
+
+    <script>
+        function showGreeting() {
+            const zodiacSign = document.getElementById('zodiacSign').value.toLowerCase();
+
+            switch (zodiacSign) {
+                case 'овен':
+                    alert("Привет, Овен!");
+                    break;
+                case 'телец':
+                    alert("Привет, Телец!");
+                    break;
+                case 'близнецы':
+                    alert("Привет, Близнецы!");
+                    break;
+                case 'рак':
+                    alert("Привет, Рак!");
+                    break;
+                case 'лев':
+                    alert("Привет, Лев!");
+                    break;
+                case 'дева':
+                    alert("Привет, Дева!");
+                    break;
+                case 'весы':
+                    alert("Привет, Весы!");
+                    break;
+                case 'скорпион':
+                    alert("Привет, Скорпион!");
+                    break;
+                case 'стрелец':
+                    alert("Привет, Стрелец!");
+                    break;
+                case 'козерог':
+                    alert("Привет, Козерог!");
+                    break;
+                case 'водолей':
+                    alert("Привет, Водолей!");
+                    break;
+                case 'рыбы':
+                    alert("Привет, Рыбы!");
+                    break;
+                default:
+                    alert("Неверный знак зодиака!");
+            }
+        }
+    </script>
+    </div>
+
+    <div id="task-container">
+        <h2>Задача 2</h2>
+        <p>Цикл for:</p>
+        <ul id="numbersFor"></ul>
+        <p>Цикл while:</p>
+        <ul id="numbersWhile"></ul>
+        <p>Цикл do...while:</p>
+        <ul id="numbersDoWhile"></ul>
+        <script>
+            let numbersForList = document.getElementById('numbersFor');
+            for (let i = 1; i <= 40; i++) {
+                let li = document.createElement('li');
+                li.textContent = i;
+                numbersForList.appendChild(li);
+            }
+            let numbersWhileList = document.getElementById('numbersWhile');
+            let i = 1;
+            while (i <= 40) {
+                let li = document.createElement('li');
+                li.textContent = i;
+                numbersWhileList.appendChild(li);
+                i++;
+            }
+            let numbersDoWhileList = document.getElementById('numbersDoWhile');
+            i = 1;
+            do {
+                let li = document.createElement('li');
+                li.textContent = i;
+                numbersDoWhileList.appendChild(li);
+                i++;
+            } while (i <= 40);
+        </script>
+    </div>
+
+    <div id="task-container">
+        <h2>Задача 3</h2>
+        <p id="virusMessage">Вирусный текст!</p>
+        <script>
+            let message = document.getElementById('virusMessage');
+            setInterval(() => {
+                message.textContent += " Вирусный текст!";
+            }, 1000);
+        </script>
+    </div>
+
+ <div id="task-container">
+        <h2>Задача 4</h2>
+        <p>Введите число больше 5:</p>
+        <input type="text" id="numberInput">
+        <button onclick="checkNumber()">Проверить</button>
+        <script>
+            function checkNumber() {
+                let number = parseInt(document.getElementById('numberInput').value);
+
+                if (isNaN(number)) {
+                    alert("Введите число!");
+                } else if (number > 5) {
+                    alert("Поздравляем! Вы ввели число больше 5.");
+                } else if (number < 5) {
+                    alert("Введенное число меньше 5. Повторите попытку.");
+                } else { // Не нужно вызывать checkNumber() рекурсивно
+                    alert("Введенное число равно 5"); // Добавлено сообщение для случая, когда ввели 5
+                }
+            }
+        </script>
+    </div>
+
+    <div id="task-container">
+        <h2>Задача 5</h2>
+        <p>Четные числа от 8 до 20:</p>
+        <ul id="evenNumbers"></ul>
+        <script>
+            let evenNumbersList = document.getElementById('evenNumbers');
+            for (let i = 8; i <= 20; i += 2) {
+                let li = document.createElement('li');
+                li.textContent = i;
+                evenNumbersList.appendChild(li);
+
+            }
+
+        </script>
+    </div>
+
+    <div id="task-container">
+        <h2>Задача 6</h2>
+        <p>Нечетные числа от 1 до 7, пропустив 5:</p>
+        <ul id="oddNumbers"></ul>
+        <script>
+            let oddNumbersList = document.getElementById('oddNumbers');
+            for (let i = 1; i <= 7; i++) {
+                if (i === 5) {
+                    continue; 
+                }
+                if (i % 2 !== 0) {
+                    let li = document.createElement('li');
+                    li.textContent = i;
+                    oddNumbersList.appendChild(li);
+                }
+            }
+        </script>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,460 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+<title>JavaScript для новичков</title>
+<link rel="stylesheet" href="style.css">
+<style>
+ #menu {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        #menu button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }       
+ #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100; 
+            display: none; 
+            color: white; 
+            text-align: center; 
+            font-size: 24px; 
+        }
+         #splash-screen img {
+            max-width: max;
+            max-height: max;
+            position: relative; 
+        }
+        
+#date-and-name {
+            position: absolute; 
+            bottom: 50%; 
+            left: 50%;
+            transform: translateX(-50%); 
+        }
+
+        #quiz-container {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin: 20px;
+            border-radius: 5px;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .answer {
+            display: flex;
+            align-items: center;
+        }
+        .answer input {
+            margin-right: 5px;
+        }
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+h1, h2 {
+    margin: 0;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+section {
+    margin-bottom: 20px;
+}
+ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+</style>
+</head>
+
+<body>
+<header>
+    <h1>Добро пожаловать в мир JavaScript!</h1>
+</header>
+
+<main>
+    <section id="intro">
+        <h2>Что такое JavaScript?</h2>
+        <p>JavaScript - это язык программирования, который делает веб-страницы живыми! Он позволяет создавать интерактивные элементы, анимации, игры и даже целые приложения.</p>
+        <p>Представьте себе сайт, где можно:</p>
+        <ul>
+            <li>Проигрывать музыку при нажатии на кнопку</li>
+            <li>Анимировать текст или изображения</li>
+            <li>Создать игру с управлением мышью</li>
+            <li>Изменить содержимое сайта без перезагрузки страницы</li>
+        </ul>
+        <p>Всё это возможно с помощью JavaScript!</p>
+    </section>
+
+    <section id="why-js">
+        <h2>Зачем изучать JavaScript?</h2>
+        <p>JavaScript - это один из самых востребованных языков программирования в мире. Знание JavaScript позволит вам:</p>
+        <ul>
+            <li>Создавать интерактивные веб-сайты</li>
+            <li>Разрабатывать веб-приложения</li>
+            <li>Работать с данными на стороне клиента</li>
+            <li>Изучать другие языки программирования</li>
+            <li>Получать интересную и высокооплачиваемую работу</li>
+        </ul>
+    </section>
+
+    <section id="uses">
+        <h2>Где используется JavaScript?</h2>
+        <p>JavaScript используется практически везде:</p>
+        <ul>
+            <li><strong>Веб-сайты:</strong> Добавление интерактивности, анимаций, обработки форм</li>
+            <li><strong>Веб-приложения:</strong> Создание онлайн-игр, чатов, инструментов для работы</li>
+            <li><strong>Мобильные приложения:</strong> Разработка мобильных приложений с использованием React Native или других фреймворков</li>
+            <li><strong>Серверная разработка:</strong> Node.js позволяет создавать серверные приложения на JavaScript</li>
+            <li><strong>Игры:</strong> Создание игр, как браузерных, так и для различных платформ</li>
+        </ul>
+    </section>
+
+    <section id="limitations">
+        <h2>Когда JavaScript не пригодится?</h2>
+        <p>Хотя JavaScript очень мощный, он не подходит для всех задач. Вот несколько примеров:</p>
+        <ul>
+            <li><strong>Разработка операционных систем:</strong> Для этого используются другие языки, такие как C++ или Rust</li>
+            <li><strong>Разработка драйверов:</strong> JavaScript не используется для написания драйверов для устройств</li>
+            <li><strong>Высокопроизводительные вычисления:</strong> Для задач, требующих большой мощности, используются языки, такие как C или Fortran</li>
+        </ul>
+    </section>
+</main>
+
+<script src="script.js"></script>
+
+<div id="menu">
+        <button onclick="showTask1()">Знак зодиака</button>
+        <button onclick="showTask2()">Числа от 1 до 5</button>
+        <button onclick="showTask3()">Дата</button>
+        <button onclick="showTask4()">Приветствие</button>
+    </div>
+
+    <div id="task-container" style="display: none;">
+        </div>
+
+    <script>
+        const taskContainer = document.getElementById('task-container');
+        let zodiacSignInput;
+        let numbersInput; 
+
+        function showTask1() {
+            taskContainer.innerHTML = `
+                <h2>Знак зодиака</h2>
+                <p>Введите ваш знак зодиака:</p>
+                <input type="text" id="zodiacSign">
+                <button onclick="checkZodiac()">Проверить</button>
+            `;
+            zodiacSignInput = document.querySelector('#zodiacSign'); 
+            taskContainer.style.display = 'block';
+        }
+
+        function checkZodiac() {
+            let sign = zodiacSignInput.value; 
+            switch (sign.toLowerCase()) {
+                case "овен":
+                    alert("Привет, Овен!");
+                    break;
+                case "телец":
+                    alert("Привет, Телец!");
+                    break;
+                case "близнецы":
+                    alert("Привет, Близнецы!");
+                    break;
+case "рак":
+                    alert("Привет, Рак!");
+                    break;
+case "лев":
+                    alert("Привет, Лев!");
+                    break;
+case "дева":
+                    alert("Привет, Дева!");
+                    break;
+case "весы":
+                    alert("Привет, Весы!");
+                    break;
+case "скорпион":
+                    alert("Привет, Скорпион!");
+                    break;
+case "стрелец":
+                    alert("Привет, Стрелец!");
+                    break;
+case "козерог":
+                    alert("Привет, Козерог!");
+                    break;
+case "водолей":
+                    alert("Привет, Водолей!");
+                    break;
+case "рыбы":
+                    alert("Привет, Рыбы!");
+                    break;
+                default:
+                    alert("Неизвестный знак зодиака!");
+            }
+        }
+
+        function showTask2() {
+            taskContainer.innerHTML = `
+                <h2>Числа от 1 до 5</h2>
+                <p>Введите число от 1 до 5:</p>
+                <input type="number" id="numbers">
+                <button onclick="checkNumbers()">Проверить</button>
+            `;
+            numbersInput = document.querySelector('#numbers');
+            taskContainer.style.display = 'block';
+        }
+
+        function checkNumbers() {
+            let number = parseInt(numbersInput.value);
+            if (number >= 1 && number <= 5) {
+                alert("Число в диапазоне от 1 до 5!");
+            } else {
+                alert("Число не находится в диапазоне от 1 до 5!");
+            }
+        }
+
+        function showTask3() {
+            const today = new Date();
+            const day = today.getDate();
+            const month = today.toLocaleString('default', { month: 'long' });
+            const year = today.getFullYear();
+            taskContainer.innerHTML = `
+                <h2>Дата</h2>
+                <p>Сегодня: ${day} ${month} ${year}</p>
+            `;
+            taskContainer.style.display = 'block';
+        }
+
+function showTask4() {
+  let имя = localStorage.getItem('имя'); 
+
+  if (!имя) { 
+prompt("Введите ваше имя:");
+    localStorage.setItem('имя', имя); 
+  }
+
+  alert("Привет, " + имя + "!");
+  taskContainer.style.display = 'block';
+}
+    </script>
+    </article>
+
+    <div id="quiz-container">
+        <h1>Тест по JavaScript</h1>
+        <div id="questions"></div>
+        <button id="submit-button" onclick="checkAnswers()">Проверить ответы</button>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        
+        const questions = [
+            {
+                question: "Какой тип данных имеет переменная `'Hello World!'`?",
+                options: ["string", "number", "boolean", "object"],
+                correctAnswer: "string"
+            },
+            {
+                question: "Какой оператор используется для проверки равенства?",
+                options: ["=", "==", "===", "!=", "<="],
+                correctAnswer: "==="
+            },
+            {
+                question: "Как объявить функцию в JavaScript?",
+                options: ["function myFunction() {}", "myFunction = () => {}", "myFunction()"],
+                correctAnswer: "function myFunction() {}"
+            },
+            {
+                question: "Как получить доступ к элементу HTML по его ID?",
+                options: ["document.getElementById('id')", "document.querySelector('#id')", "document.getElement('id')"],
+                correctAnswer: "document.getElementById('id')"
+            },
+            {
+                question: "Какой цикл используется для итерации по массиву?",
+                options: ["for", "while", "do...while", "forEach"],
+                correctAnswer: "forEach"
+            },
+            {
+                question: "Как добавить элемент в конец массива?",
+                options: ["push()", "unshift()", "pop()", "shift()"],
+                correctAnswer: "push()"
+            },
+            {
+                question: "Что такое DOM?",
+                options: ["Документ обмена данными", "Документ объекта модели", "Динамический объект модели", "Другой вариант"],
+                correctAnswer: "Документ объекта модели"
+            },
+            {
+                question: "Как получить доступ к атрибуту элемента HTML?",
+                options: ["element.getAttribute('attribute')", "element.setAttribute('attribute')", "element.attribute"],
+                correctAnswer: "element.getAttribute('attribute')"
+            },
+            {
+                question: "Какой тип данных используется для представления истинного или ложного значения?",
+                options: ["string", "number", "boolean", "object"],
+                correctAnswer: "boolean"
+            },
+            {
+                question: "Как создать объект в JavaScript?",
+                options: ["let myObject = {};", "myObject = new Object();", "myObject = { }"],
+                correctAnswer: "let myObject = {};"
+            }
+        ];
+
+        
+        function createQuestions() {
+            const questionsDiv = document.getElementById('questions');
+            questions.forEach((question, index) => {
+                const questionContainer = document.createElement('div');
+                questionContainer.classList.add('question');
+                questionContainer.innerHTML = `
+                    <h2>Вопрос ${index + 1}:</h2>
+                    <p>${question.question}</p>
+                    <div class="options">
+                        ${question.options.map(option => `
+                            <div class="answer">
+                                <input type="radio" name="question${index}" value="${option}">
+                                <label for="question${index}">${option}</label>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                questionsDiv.appendChild(questionContainer);
+            });
+        }
+
+        
+        function checkAnswers() {
+            let score = 0;
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<h2>Результаты:</h2>';
+            const userAnswers = [];
+
+            questions.forEach((question, index) => {
+                const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+                const userAnswer = selectedOption ? selectedOption.value : null;
+                userAnswers.push(userAnswer);
+
+                const answerResult = document.createElement('p');
+                answerResult.textContent = `${index + 1}. ${question.question} - ${userAnswer === question.correctAnswer ? 'Верно' : 'Неверно'}`;
+                resultsDiv.appendChild(answerResult);
+
+                if (userAnswer === question.correctAnswer) {
+                    score++;
+                }
+            });
+
+            const finalResult = document.createElement('p');
+            finalResult.textContent = `Ваш результат: ${score} из ${questions.length}`;
+            resultsDiv.appendChild(finalResult);
+
+            
+            const answersList = document.createElement('ul');
+            userAnswers.forEach((answer, index) => {
+                const answerItem = document.createElement('li');
+                answerItem.textContent = `${index + 1}. ${questions[index].question} - ваш ответ: ${answer} - ${answer === questions[index].correctAnswer ? 'Верно' : 'Неверно'}`;
+                answersList.appendChild(answerItem);
+            });
+        }
+
+        createQuestions();
+    </script>
+<h2>Заставка на весь экран с красивым фоном</h2>
+      <button id="show-splash">Показать заставку</button>
+
+    <div id="splash-screen">
+        <img src="https://cdn.myportfolio.com/6246c16504e4d3651f60b5da693f953a/4794244d-e6c0-4b45-ab44-d2c564a4ecc7_rw_3840.jpg?h=71caa818f746c60994a024c3a1dfb4c0" alt="Заставка"> 
+        <div id="date-and-name"></div> 
+    </div>
+
+    <script>
+        const showSplashButton = document.getElementById('show-splash');
+        const splashScreen = document.getElementById('splash-screen');
+        const dateAndNameDiv = document.getElementById('date-and-name');
+
+        showSplashButton.addEventListener('click', () => {
+            splashScreen.style.display = 'flex';
+
+          
+            let userName = localStorage.getItem('userName');
+            if (!userName) {
+                userName = 'Пользователь'; // Используем "Пользователь", если имя не сохранено
+            } 
+
+            const currentDate = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = currentDate.toLocaleDateString('ru-RU', options);
+
+
+
+
+
+            dateAndNameDiv.textContent = `${userName}! Сегодня  ${formattedDate}`;
+
+            splashScreen.addEventListener('click', () => {
+                splashScreen.style.display = 'none';
+            });
+        });
+    </script>
+
+</body>
+</html>
